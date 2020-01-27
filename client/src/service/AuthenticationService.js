@@ -1,4 +1,4 @@
-import Axios from "axios"
+import axios from "axios"
 
 const API_URL = 'http://localhost:8080'
 
@@ -13,7 +13,7 @@ class AuthenticationService {
         this.setupAxiosInterceptors(this.createBasicAuthToken(username, password))
     }
     setupAxiosInterceptors(token) {
-        Axios.interceptors.request.use(
+        axios.interceptors.request.use(
             (config) => {
                 if (this.isUserLoggedIn()) {
                     config.headers.authorization = token
@@ -21,6 +21,20 @@ class AuthenticationService {
                 return config
             }
         )
+    }
+    executeJwtAuthenticationService(username, password) {
+        console.log(username);
+        return axios.post(`${API_URL}/authenticate`, {
+            username,
+            password
+        })
+    }
+    registerSuccessfulLoginForJwt(username, token) {
+        sessionStorage.setItem(USER_NAME_SESSION_ATTRIBUTE_NAME, username)
+        this.setupAxiosInterceptors(this.createJWTToken(token))
+    }
+    createJWTToken(token) {
+        return 'Bearer ' + token
     }
 }
 export default AuthenticationService;
