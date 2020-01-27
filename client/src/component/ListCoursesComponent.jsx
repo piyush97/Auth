@@ -1,8 +1,9 @@
-import React, { Component } from 'react';
-import CourseDataService from '../service/CourseDataService';
+import React, { Component } from 'react'
+import CourseDataService from '../service/CourseDataService.js';
+
+const INSTRUCTOR = 'piyush97'
 
 class ListCoursesComponent extends Component {
-
     constructor(props) {
         super(props)
         this.state = {
@@ -17,16 +18,17 @@ class ListCoursesComponent extends Component {
     }
 
     refreshCourses() {
-        CourseDataService.retrieveAllCourses("piyush97")//HARDCODED
+        CourseDataService.retrieveAllCourses(INSTRUCTOR)//HARDCODED
             .then(
                 response => {
-                    console.log(response);
                     this.setState({ courses: response.data })
                 }
             )
     }
 
+
     render() {
+        console.log('render')
         return (
             <div className="container">
                 <h3>All Courses</h3>
@@ -56,4 +58,4 @@ class ListCoursesComponent extends Component {
     }
 }
 
-export default ListCoursesComponent;
+export default ListCoursesComponent

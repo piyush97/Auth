@@ -1,8 +1,8 @@
-import axios from 'axios';
+import axios from 'axios'
 
-const INSTRUCTOR = 'piyush97';
+const INSTRUCTOR = 'piyush'
 const PASSWORD = 'passs'
-const COURSE_API_URL = 'https://localhost:8080'
+const COURSE_API_URL = 'http://localhost:8080'
 const INSTRUCTOR_API_URL = `${COURSE_API_URL}/instructors/${INSTRUCTOR}`
 
 class CourseDataService {
@@ -15,4 +15,4 @@ class CourseDataService {
     }
 }
 
-export default new CourseDataService();
+export default new CourseDataService()

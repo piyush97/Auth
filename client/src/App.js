@@ -1,13 +1,15 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './App.css';
-import InstructorApp from './component/InstructorApp';
+import InstructorApp from './component/InstructorApp.jsx';
 
-function App() {
-  return (
-    <div className="container">
-      <InstructorApp />
-    </div>
-  );
+class App extends Component {
+  render() {
+    return (
+      <div className="container">
+        <InstructorApp />
+      </div>
+    );
+  }
 }
 
 export default App;
