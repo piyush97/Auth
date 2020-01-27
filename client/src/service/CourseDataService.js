@@ -8,9 +8,9 @@ const INSTRUCTOR_API_URL = `${COURSE_API_URL}/instructors/${INSTRUCTOR}`
 class CourseDataService {
 
     retrieveAllCourses(name) {
-        console.log('executed service')
+        //console.log('executed service')
         return axios.get(`${INSTRUCTOR_API_URL}/courses`,
-            { headers: { authorization: 'Basic ' + window.btoa(INSTRUCTOR + ":" + PASSWORD) } }
+            //{ headers: { authorization: 'Basic ' + window.btoa(INSTRUCTOR + ":" + PASSWORD) } }
         );
     }
 }
