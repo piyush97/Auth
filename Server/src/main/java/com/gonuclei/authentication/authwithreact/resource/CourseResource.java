@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@CrossOrigin(origins = { "http://localhost:3000", "http://localhost:4200" })
+@CrossOrigin(origins = { "https://localhost:3000", "https://localhost:4200" })
 public class CourseResource {
     @Autowired
     private CoursesHardcodedService courseManagementService;
