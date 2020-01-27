@@ -1,24 +1,32 @@
 import React, { Component } from 'react';
 import ListCoursesComponent from './ListCoursesComponent';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import LoginComponent from './LoginComponent';
-import { Router, Switch, Route } from 'react-router-dom';
+import LogoutComponent from './LogoutComponent';
+import MenuComponent from './MenuComponent';
+// import AuthenticationService from '../service/AuthenticationService';
+import AuthenticatedRoute from './AuthenticatedRoute';
 
 class InstructorApp extends Component {
+
+
     render() {
         return (
             <>
-            <Router>
-                <>
-                    <Switch>
-                        <Route path="/" exact component={LoginComponent} />
-                        <Route path="/login" exact component={LoginComponent} />
-                        {/* <AuthenticatedRoute path="/courses" exact component={ListCoursesComponent} /> */}
-                    </Switch>
-                </>
-            </Router>
-        </>
+                <Router>
+                    <>
+                        <MenuComponent />
+                        <Switch>
+                            <Route path="/" exact component={LoginComponent} />
+                            <Route path="/login" exact component={LoginComponent} />
+                            <AuthenticatedRoute path="/logout" exact component={LogoutComponent} />
+                            <AuthenticatedRoute path="/courses" exact component={ListCoursesComponent} />
+                        </Switch>
+                    </>
+                </Router>
+            </>
         )
     }
 }
 
-export default InstructorApp;
+export default InstructorApp
